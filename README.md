@@ -24,7 +24,7 @@ However, there is an issue. Should the same weight be applied to all the minorit
 The proposed solution is to apply the cost to only certain samples or apply different costs depending on their level of difficulty. This improves the prediction performance in different imbalanced scenarios.
 
 For more information, please refer to the following paper:
-## Paper
+### Paper
 
 arxiv: 
 
@@ -68,6 +68,6 @@ If you plan to use this module, please consider referring to the following paper
 
 ```
 ```
-# Paper
+# Note
 
 The work is currently being updated to include additional features which I plan to incorporate soon. 
