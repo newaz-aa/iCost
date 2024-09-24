@@ -26,7 +26,7 @@ The proposed solution is to apply the cost to only certain samples or apply diff
 For more information, please refer to the following paper:
 ### Paper
 
-arxiv: 
+arxiv: https://doi.org/10.48550/arXiv.2409.13007 
 
 The paper is currently under review in the 'Information Science' (Elsevier) journal.
 ## Usage Example
