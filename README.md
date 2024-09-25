@@ -67,6 +67,15 @@ Modify/tune the parameters for improved performance.
 If you plan to use this module, please consider referring to the following paper:
 
 ```
+@misc{newaz2024icostnovelinstancecomplexity,
+      title={iCost: A Novel Instance Complexity Based Cost-Sensitive Learning Framework for Imbalanced Classification}, 
+      author={Asif Newaz and Asif Ur Rahman Adib and Taskeed Jabid},
+      year={2024},
+      eprint={2409.13007},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2409.13007}, 
+}
 ```
 # Note
 
