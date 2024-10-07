@@ -34,6 +34,8 @@ The paper is currently under review in the 'Information Science' (Elsevier) jour
 * The icost.py module implements the proposed approach. 
 
 * The icost_test.ipynb file shows the implementation of the algorithm in several datasets.
+  
+* The icost_figure.ipynb file contains codes for performance visualization.  
 
 ### Input arguments
 There are three input parameters.
