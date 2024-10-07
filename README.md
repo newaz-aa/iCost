@@ -8,6 +8,9 @@ This repository contains the implementation of the iCost classifier, an instance
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-0.24%2B-orange)](https://scikit-learn.org/stable/)
 [![numpy](https://img.shields.io/badge/numpy-1.19%2B-ff69b4)](https://numpy.org/)
 [![pandas](https://img.shields.io/badge/pandas-1.1%2B-yellow)](https://pandas.pydata.org/)
+![Seaborn](https://img.shields.io/badge/Seaborn-Data%20Visualization-blue)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Data%20Visualization-orange)
+
 
  
 
