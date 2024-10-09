@@ -34,11 +34,15 @@ arxiv: https://doi.org/10.48550/arXiv.2409.13007
 The paper is currently under review in the 'Information Science' (Elsevier) journal.
 ## Usage Example
 
-* The icost.py module implements the proposed approach. 
+* icost.py module implements the proposed approach. 
 
-* The icost_test.ipynb file shows the implementation of the algorithm in several datasets.
+* icost_test.ipynb file shows the implementation of the algorithm in several datasets.
   
-* The icost_figure.ipynb file contains codes for performance visualization.  
+* icost_figure.ipynb file contains codes for performance visualization.
+
+* icost_mst.py contains the code to implement the iCost algorithm using instance complexity based on the Minimum Spanning Tree (MST).
+  
+* instance_complexity_mst.py file contains the code to obtain instance classification based on MST. 
 
 ### Input arguments
 There are three input parameters.
