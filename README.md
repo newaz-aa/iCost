@@ -49,6 +49,14 @@ arxiv: https://doi.org/10.48550/arXiv.2409.13007
 The paper is currently under review.
 
 
+[![PyPI version](https://img.shields.io/pypi/v/icost?color=blue&label=install%20with%20pip)](https://pypi.org/project/icost/)
+Installation
+
+'''
+pip install icost
+
+'''
+
 ## Usage Example
 
 * icost.py module implements the proposed approach. 
