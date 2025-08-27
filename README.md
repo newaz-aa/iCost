@@ -18,16 +18,16 @@ iCost is a Python library for instance-level cost-sensitive learning, fully comp
 - Support for any scikit-learn compatible classifier as the base model.
 - Multiple strategies for cost-sensitive learning:
 
-    ncs → no cost (baseline).
-    org → original sklearn-style cost-sensitive (all minority weighted by imbalance ratio).
-    mst → MST-based linked vs. pure minority categorization.
-    neighbor → neighbor-based categorization with three sub-modes.
+    -- ncs → no cost (baseline).
+    -- org → original sklearn-style cost-sensitive (all minority weighted by imbalance ratio).
+    -- mst → MST-based linked vs. pure minority categorization.
+    -- neighbor → neighbor-based categorization with three sub-modes.
 
 - Neighbor-based categorization (5-NN):
 
-    Mode 1 → safe, pure, border.
-    Mode 2 → safe, border, outlier.
-    Mode 3 → fine-grained categories g1–g6 with user-defined penalties.
+    -- Mode 1 → safe, pure, border.
+    -- Mode 2 → safe, border, outlier.
+    -- Mode 3 → fine-grained categories g1–g6 with user-defined penalties.
 
 - Utility function: categorize_minority_class for direct analysis of minority-class samples.
 
@@ -48,27 +48,14 @@ arxiv: https://doi.org/10.48550/arXiv.2409.13007
 
 The paper is currently under review.
 
-
+## Installation
 
 [![PyPI version](https://img.shields.io/pypi/v/icost?color=blue&label=install%20with%20pip)](https://pypi.org/project/icost/)
 
-Installation
 
 ```
 pip install icost
 ```
-
-## 
-
-* icost.py module implements the proposed approach. 
-
-* icost_test.ipynb file shows the implementation of the algorithm in several datasets.
-  
-* icost_figure.ipynb file contains codes for performance visualization.
-
-* icost_mst.py contains the code to implement the iCost algorithm using instance complexity based on the Minimum Spanning Tree (MST).
-  
-* instance_complexity_mst.py file contains the code to obtain instance classification based on MST. 
 
 
 ## Usage Example
@@ -96,10 +83,9 @@ clf3 = iCost(
     neighbor_costs=[1.0, 1.3, 1.7, 2.1, 2.5, 3.0]  # g1..g6
 )
 clf3.fit(X_train, y_train)
-
 ```
 
-Helper Function
+### Helper Function
 
 You can analyze minority samples directly with:
 
@@ -114,17 +100,15 @@ min_idx, groups, opp_counts = categorize_minority_class(
     mode=1,
     show_summary=True
 )
-
 ```
 
-Output:
+### Output:
 
 ```
 Category summary (minority samples):
   safe: 45
   pure: 28
   border: 62
-
 ```
 
 ## Structure
@@ -141,18 +125,14 @@ icost/
                               #   - Categorizes minority samples with 5-NN
                               #   - Supports modes (safe, pure, border, outlier, g1–g6)
                               #   - Provides summary statistics
-
-
 ```
 
-Other files in the repo
+### Other files in the repo
 
-README.md → Documentation and usage instructions.
-
-LICENSE → Project license (MIT by default).
-
-pyproject.toml → Build configuration for packaging and PyPI upload.
-icost_usage_example → tests to check functionality.
+ - README.md → Documentation and usage instructions.
+ - LICENSE → Project license (MIT by default).
+ - pyproject.toml → Build configuration for packaging and PyPI upload.
+ - icost_usage_example → tests to check functionality.
 
 
 ## Screenshots
