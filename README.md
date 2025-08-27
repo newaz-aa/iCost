@@ -19,14 +19,19 @@ iCost is a Python library for instance-level cost-sensitive learning, fully comp
 - Multiple strategies for cost-sensitive learning:
 
     -- ncs → no cost (baseline).
+  
     -- org → original sklearn-style cost-sensitive (all minority weighted by imbalance ratio).
+  
     -- mst → MST-based linked vs. pure minority categorization.
+  
     -- neighbor → neighbor-based categorization with three sub-modes.
 
 - Neighbor-based categorization (5-NN):
 
     -- Mode 1 → safe, pure, border.
+  
     -- Mode 2 → safe, border, outlier.
+  
     -- Mode 3 → fine-grained categories g1–g6 with user-defined penalties.
 
 - Utility function: categorize_minority_class for direct analysis of minority-class samples.
@@ -68,8 +73,7 @@ from sklearn.svm import SVC
 clf = iCost(
     base_classifier=SVC(kernel="rbf", probability=True),
     method="neighbor",
-    neighbor_mode=2,          # Mode 1, 2, or 3
-    cfs=1.0, cfb=2.0, cfo=3.0 # For mode=2
+    neighbor_mode=2          # Mode 1, 2, or 3
 )
 
 clf.fit(X_train, y_train)
@@ -80,7 +84,7 @@ clf3 = iCost(
     base_classifier=SVC(),
     method="neighbor",
     neighbor_mode=3,
-    neighbor_costs=[1.0, 1.3, 1.7, 2.1, 2.5, 3.0]  # g1..g6
+    neighbor_costs=[1.0, 2.0, 5.0, 5.0, 3.0, 1.0]  # g1..g6
 )
 clf3.fit(X_train, y_train)
 ```
