@@ -49,15 +49,16 @@ arxiv: https://doi.org/10.48550/arXiv.2409.13007
 The paper is currently under review.
 
 
+
 [![PyPI version](https://img.shields.io/pypi/v/icost?color=blue&label=install%20with%20pip)](https://pypi.org/project/icost/)
+
 Installation
 
-'''
+```
 pip install icost
+```
 
-'''
-
-## Usage Example
+## 
 
 * icost.py module implements the proposed approach. 
 
@@ -69,27 +70,91 @@ pip install icost
   
 * instance_complexity_mst.py file contains the code to obtain instance classification based on MST. 
 
-### Input arguments
-There are three input parameters.
-* flag 
+
+## Usage Example
 
 ```
-flag = 0 => all minority samples - cost_factor = 1 [original classifier]
-flag = 1 => all minority samples = cost_factor = IR [original CS classifier]
-flag = 2 => cost applied based on minority-class instance categories
+from icost import iCost, categorize_minority_class
+from sklearn.svm import SVC
+
+# Example with neighbor-mode cost assignment
+clf = iCost(
+    base_classifier=SVC(kernel="rbf", probability=True),
+    method="neighbor",
+    neighbor_mode=2,          # Mode 1, 2, or 3
+    cfs=1.0, cfb=2.0, cfo=3.0 # For mode=2
+)
+
+clf.fit(X_train, y_train)
+print("Test Accuracy:", clf.score(X_test, y_test))
+
+# Example with mode=3 (custom penalties for g1..g6)
+clf3 = iCost(
+    base_classifier=SVC(),
+    method="neighbor",
+    neighbor_mode=3,
+    neighbor_costs=[1.0, 1.3, 1.7, 2.1, 2.5, 3.0]  # g1..g6
+)
+clf3.fit(X_train, y_train)
+
 ```
 
-* base_classifier
+Helper Function
+
+You can analyze minority samples directly with:
 
 ```
-A classifier instance such as SVM or RF. Should support sample_weight parameter.
+import pandas as pd
+from icost import categorize_minority_class
+
+df = pd.read_csv("your_dataset.csv")
+min_idx, groups, opp_counts = categorize_minority_class(
+    df,
+    minority_label=1,
+    mode=1,
+    show_summary=True
+)
+
 ```
 
-* cost factor (cfp, cfs, cfb)
+Output:
+
 ```
-default values are set for these three types of instance categories. 
-Modify/tune the parameters for improved performance.
+Category summary (minority samples):
+  safe: 45
+  pure: 28
+  border: 62
+
 ```
+
+## Structure
+
+```
+icost/
+├── __init__.py               # Makes icost a package; exposes iCost and helpers
+├── __version__.py            # Stores the package version (e.g., 0.1.0)
+├── icost.py                  # Main iCost class (methods: ncs, org, mst, neighbor)
+├── mst_linked_ind.py         # MST-based helper:
+│                             #   - Identifies 'linked' vs 'pure' minority samples
+│                             #   - Used for MST variant of iCost
+└── categorize_minority_v2.py # Neighbor-based helper:
+                              #   - Categorizes minority samples with 5-NN
+                              #   - Supports modes (safe, pure, border, outlier, g1–g6)
+                              #   - Provides summary statistics
+
+
+```
+
+Other files in the repo
+
+README.md → Documentation and usage instructions.
+
+LICENSE → Project license (MIT by default).
+
+pyproject.toml → Build configuration for packaging and PyPI upload.
+icost_usage_example → tests to check functionality.
+
+
 ## Screenshots
 
 ![App Screenshot](https://github.com/newaz-aa/Modified_Cost_Sensitive_Classifier/blob/main/Figures/categorization.png)
@@ -98,7 +163,7 @@ Modify/tune the parameters for improved performance.
 
 
 ## BibTex Citation
-If you plan to use this module, please consider referring to the following paper:
+If you plan to use this module, please cite the paper:
 
 ```
 @misc{newaz2024icostnovelinstancecomplexity,
@@ -111,6 +176,11 @@ If you plan to use this module, please consider referring to the following paper
       url={https://arxiv.org/abs/2409.13007}, 
 }
 ```
-# Note
 
-The work is currently being updated to include additional features which I plan to incorporate soon. 
+### License
+
+This project is licensed under the MIT License.
+
+### Note
+
+The work is currently being updated to include additional features, which I plan to incorporate soon. 
