@@ -1,7 +1,7 @@
 
 # iCost
 
-This repository contains the implementation of the iCost classifier, an instance-complexity-based cost-sensitive classification algorithm. The classifier supports multiple base classifiers (e.g., SVM, LR, RF) and dynamically adjusts sample costs based on data complexity.
+iCost is a Python library for instance-level cost-sensitive learning, fully compatible with scikit-learn. It extends traditional cost-sensitive classification by dynamically adjusting sample costs based on instance complexity. Multiple strategies have been incorporated into the algorithm, and it works with any scikit-learn classifier that supports sample_weight.
 
 ### Requirements:
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
@@ -16,22 +16,39 @@ This repository contains the implementation of the iCost classifier, an instance
 
 ### Key Features:
 - Support for any scikit-learn compatible classifier as the base model.
-- Customizable cost factors for different types of samples (border, rare, pure).
-- Integration of K-nearest neighbors for minority class categorization.
+- Multiple strategies for cost-sensitive learning:
+
+    ncs → no cost (baseline).
+    org → original sklearn-style cost-sensitive (all minority weighted by imbalance ratio).
+    mst → MST-based linked vs. pure minority categorization.
+    neighbor → neighbor-based categorization with three sub-modes.
+
+- Neighbor-based categorization (5-NN):
+
+    Mode 1 → safe, pure, border.
+    Mode 2 → safe, border, outlier.
+    Mode 3 → fine-grained categories g1–g6 with user-defined penalties.
+
+- Utility function: categorize_minority_class for direct analysis of minority-class samples.
+
+  
 ## Synopsis
 
 The standard weighted classifier applies an increased weight to all the minority class misclassifications in imbalanced classification tasks. This approach is available in the standard implementation of the sklearn library.
 
-However, there is an issue. Should the same weight be applied to all the minority class samples indiscriminately? Some minority class samples are closer to the decision boundary (difficult to identify), while some samples are far way from the border (easy to classify). Now, applying the higher misclassification cost to all the minority-class samples distorts the decision boundary significantly, resulting in more misclassifications of the majority-class samples. 
+However, there is an issue. Should the same weight be applied to all the minority class samples indiscriminately? Some minority class samples are closer to the decision boundary (difficult to identify), while some samples are far way from the border (easy to classify). There are also some instances that are noisy, completely surrounded by instances from the majority class. Now, applying the same higher misclassification cost to all the minority-class samples is unjustifiable. It distorts the decision boundary significantly, resulting in more misclassifications. 
 
 The proposed solution is to apply the cost to only certain samples or apply different costs depending on their level of difficulty. This improves the prediction performance in different imbalanced scenarios.
 
 For more information, please refer to the following paper:
+
 ### Paper
 
 arxiv: https://doi.org/10.48550/arXiv.2409.13007 
 
-The paper is currently under review in the 'Information Science' (Elsevier) journal.
+The paper is currently under review.
+
+
 ## Usage Example
 
 * icost.py module implements the proposed approach. 
