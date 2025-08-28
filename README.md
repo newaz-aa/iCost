@@ -55,7 +55,7 @@ The paper is currently under review.
 
 ## Installation
 
-[![PyPI version](https://img.shields.io/pypi/v/icost?color=blue&label=install%20with%20pip)](https://pypi.org/project/icost/)
+[![PyPI version](https://img.shields.io/pypi/v/icost)](https://pypi.org/project/icost/)
 
 
 ```
