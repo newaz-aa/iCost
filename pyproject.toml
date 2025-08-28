@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 27 18:31:57 2025
-
-@author: asif newaz
-"""
-
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -12,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "icost"
-version = "0.1.0"
+version = "0.1.1"
 description = "Instance-complexity based cost-sensitive learning"
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.8"
@@ -41,3 +35,4 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
+
