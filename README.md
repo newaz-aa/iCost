@@ -201,7 +201,7 @@ icost/
 
 Neighbor-iCost estimates minority-instance complexity using local neighborhood composition. Minority samples are categorized as pure, safe, border, or outlier-like based on the number of majority-class samples among their nearest neighbors.
 
-![Neighbor-iCost minority-instance categorization](https://github.com/newaz-aa/iCost/blob/main/Figures/cat_01.drawio.png)
+![Neighbor-iCost minority-instance categorization](https://github.com/newaz-aa/iCost/blob/main/Figures/neighbor%20categories.png)
 
 ### Gini-iCost
 
