@@ -193,6 +193,25 @@ icost/
 ```
 
 ---
+---
+
+## Method Overview
+
+### Neighbor-iCost
+
+Neighbor-iCost estimates minority-instance complexity using local neighborhood composition. Minority samples are categorized as pure, safe, border, or outlier-like based on the number of majority-class samples among their nearest neighbors.
+
+![Neighbor-iCost minority-instance categorization](Figures/neighbor_icost.png)
+
+### Gini-iCost
+
+Gini-iCost uses a shallow decision-tree probe to partition the feature space. The class distribution and Gini impurity of the leaf containing each minority sample are then used to estimate regional ambiguity and assign adaptive penalties.
+
+![Gini-iCost feature-space partitioning](Figures/gini_icost.png)
+
+---
+
+
 
 ## Research Paper
 
