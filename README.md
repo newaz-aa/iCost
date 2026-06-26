@@ -235,8 +235,8 @@ This project is licensed under the MIT License.
 
 ## Author
 
-**Asif Newaz**
-Assistant Professor
-Department of Electrical and Electronic Engineering
-Islamic University of Technology (IUT), Gazipur, Bangladesh
+**Asif Newaz**  
+Assistant Professor  
+Department of Electrical and Electronic Engineering  
+Islamic University of Technology (IUT), Gazipur, Bangladesh  
 Email: [eee.asifnewaz@iut-dhaka.edu](mailto:eee.asifnewaz@iut-dhaka.edu)
